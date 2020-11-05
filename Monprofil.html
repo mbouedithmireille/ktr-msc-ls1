@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="En">
+
+<head>
+  <meta charset="UTF-8">
+    
+  <title>PROFIL </title>
+    
+  <link rel="stylesheet" href="C:\Users\user\Desktop\Brackets\EPITECH\css\style.css">
+    
+</head>
+    
+<body>
+    
+  <div class="wrapper">
+      
+   <form method="POST" action="C:\Users\user\Desktop\Brackets\EPITECH\php\monprofil.php" onsubmit="return Validate()" name="vform" align="center">
+       
+      
+        <div id="Name_div">
+        
+   	  <label>Name</label> <br>
+        
+   	  <input type="text" name="Name" class="textInput" required>
+        
+   	  <div id="Name_error"></div>
+           
+            
+   	</div>
+       
+       
+       <div id="Company_div">
+        
+   	  <label>Company Name</label> <br>
+        
+   	  <input type="text" name="Company" class="textInput">
+        
+   	  <div id="Company_error"></div>
+       </div>
+       
+   	<div id="email_div">
+   	  <label>Email</label> <br>
+   	  <input type="email" name="email" class="textInput">
+   	  <div id="email_error"></div>
+   	</div>
+       
+       	<div id="Telephone_div">
+   	  <label>Telephone Number</label> <br>
+   	  <input type="tel" name="Telephone" class="textInput" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="enter the correct number" >
+   	</div>
+         	<div id="password_div">
+   	  <label>Password</label> <br>
+   	  <input type="password" name="password" class="textInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" title="
+your password must be uppercase, lowercase and at least seven characters" required>
+   	</div>
+       
+   	<div id="confermpassword_div">
+   	   <label> password conferm</label> <br>
+   	   <input type="password" name="confermpassword" class="textInput"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" title="
+your password must be uppercase, lowercase and at least seven characters" required>
+   	   <div id="password_error"></div>
+       </div>
+       
+   	<div>
+   	<input type="submit" name="register" value="Register" class="btn">
+        
+   	</div>
+   </form>
+  </div>
+   </form>
+  </div>
+    
+<script type="text/javascript">
+
+// take  the element to control
+var Name = document.forms['vform']['Name'];
+  
+    
+// to keep all the errors
+    
+var Name_error = document.getElementById('Name_error');
+    
+var Company_error = document.getElementById('Company_error');
+var email_error = document.getElementById('email_error');
+var telephone_error = document.getElementById('telephone_error');
+var password_error = document.getElementById('password_error');
+    
+    
+// event occur
+    
+Name.addEventListener('blur', NameVerify, true);
+password.addEventListener('blur', passwordVerify, true);
+    
+
+    funzione Validate()
+    {
+       
+     // verify Name
+    
+  if (Name.value == "") {
+    Name.style.border = "1px solid red";
+    document.getElementById('Name_div').style.color = "blue";
+    Name_error.textContent = "Name is required";
+    Name.focus();
+    return false;
+  }
+    
+
+     // verify if the form of the password is respect
+  if (password.value == "") {
+    password.style.border = "1px solid red";
+    document.getElementById('password_div').style.color = "blue";
+    confermapassword.style.border = "1px solid red";
+    password_error.textContent = "Password is required";
+    password.focus();
+    return false;
+  }
+  // verify if the two password match
+        
+  if (password.value != confermpassword.value) 
+  {
+    password.style.border = "1px solid red";
+    document.getElementById('confermpassword_div').style.color = "blue";
+    confermpassword.style.border = "1px solid red";
+    password_error.innerHTML = "password are not the same";
+    return false;
+  }
+    
+    }
+
+</script>
+</body>
+</html>
+

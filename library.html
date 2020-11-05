@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+    
+  <title>LIBRARY </title>
+    
+  <link rel="stylesheet" href="C:\Users\user\Desktop\Brackets\EPITECH\css\style.css">
+    
+</head>
+    
+<body>
+    
+  <div class="wrapper">
+      
+   <form method="POST" action="C:\Users\user\Desktop\Brackets\EPITECH\php\monprofil.php" onsubmit="return Validate()" name="vform" align="center">
+       
+      
+        <div id="Name_div">
+        
+   	  <label>Name</label> <br>
+        
+   	  <input type="text" name="Name" class="textInput" >
+        
+   	  <div id="Name_error"></div>
+           
+            
+   	</div>
+       
+       
+       <div id="Company_div">
+        
+   	  <label>Company Name</label> <br>
+        
+   	  <input type="text" name="Company" class="textInput">
+        
+   	  <div id="Company_error"></div>
+       </div>
+       
+   	<div id="email_div">
+   	  <label>Email</label> <br>
+   	  <input type="email" name="email" class="textInput" required>
+   	  <div id="email_error"></div>
+   	</div>
+       
+       	<div id="Telephone_div">
+   	  <label>Telephone Number</label> <br>
+   	  <input type="tel" name="Telephone" class="textInput" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="put on your phone number" >
+   	</div>
+         
+   	<input type="submit" name="register" value="Register" class="btn">
+        
+   	</div>
+   </form>
+  </div>
+   </form>
+  </div>
+    
+<script type="text/javascript">
+
+// take all the element 
+var email = document.forms['vform']['email'];
+
+// to keep all the errors
+    
+
+var email_error = document.getElementById('email_error');
+ 
+// event occur
+
+email.addEventListener('blur', emailVerify, true);
+
+
+    funzione Validate()
+    {
+    
+   verifica email
+  if (email.value == "") {
+    email.style.border = "1px solid red";
+    document.getElementById('email_div').style.color = "blue";
+    email_error.textContent = "Email is required";
+    email.focus();
+    return false;
+  }
+    
+
+    
+function emailVerify() {
+  if (email.value != "") {
+  	email.style.border = "1px solid #5e6e66";
+  	document.getElementById('email_div').style.color = "#5e6e66";
+  	email_error.innerHTML = "";
+  	return true;
+  }
+}
+  
+    
+    }
+
+</script>
+</body>
+</html>
+
